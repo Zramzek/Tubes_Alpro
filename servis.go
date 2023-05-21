@@ -112,33 +112,24 @@ func nambah_data() {
 	}
 }
 
-//func nambah_data() {
-//	var arrPelanggan customer
-//	var arrTransaksi histori
-//	var arrSparepart sukucadang
-//	var n int
-//
-//	fmt.Println("== Aplikasi Service Motor ==")
-//	fmt.Println("=== Page Penambahan Data ===")
-//	fmt.Println("----------------------------")
-//	fmt.Println("Pilih data yang ingin ditambah")
-//	fmt.Println("1. Pelanggan")
-//	fmt.Println("2. Sparepart")
-//	fmt.Println("3. Transaksi")
-//	fmt.Println("4. Keluar")
-//	fmt.Print("Masukkan pilihan anda : ")
-//	fmt.Println("----------------------------")
-//	fmt.Scan(&n)
-//	if n == 1 {
-//		nambah_dataPelanggan(&arrPelanggan)
-//	} else if n == 2 {
-//		nambah_dataSparepart(&arrTransaksi)
-//	} else if n == 3 {
-//		nambah_dataTransaksi(&arrSparepart)
-//	} else {
-//		menu()
-//	}
-//}
+/*func nambah_data(arrTransaksi *histori, idx transaksi) {
+	fmt.Println("========================================")
+	fmt.Println("=       APLIKASI SERVICE MOTOR         =")
+	fmt.Println("=        Page Penambahan Data          =")
+	fmt.Println("========================================")
+	fmt.Print("  Masukkan nama customer: ")
+	fmt.Scan(&arrTransaksi[idx.n].pelanggan.nama)
+	fmt.Print("  Masukkan tanggal transaksi (DD/MM/YY): ")
+	fmt.Scan(&arrTransaksi[idx.n].waktu)
+	fmt.Print("  Masukkan tarif: ")
+	fmt.Scan(&arrTransaksi[idx.n].tarif)
+	fmt.Print("  Masukkan nama sparepart yang diperbaiki: ")
+	fmt.Scan(&arrTransaksi[idx.n].sparepart.nama)
+	fmt.Println("========================================")
+	arr
+	idx.n++
+
+}*/
 
 func nambah_dataSparepart(T *sukucadang) {
 	var i int
