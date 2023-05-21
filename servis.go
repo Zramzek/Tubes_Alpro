@@ -243,16 +243,19 @@ func cari_data() {
 	var arrSparepart sukucadang
 	var n int
 
-	fmt.Println("== Aplikasi Service Motor ==")
-	fmt.Println("----------------------------")
-	fmt.Println("Pilih data yang ingin ditambah")
-	fmt.Println("1. Pelanggan")
-	fmt.Println("2. Sparepart")
-	fmt.Println("3. Transaksi")
-	fmt.Println("4. Keluar")
-	fmt.Print("Masukkan pilihan anda : ")
-	fmt.Println("----------------------------")
+	fmt.Println("========================================")
+	fmt.Println("=       APLIKASI SERVICE MOTOR         =")
+	fmt.Println("=         Page Pencarian Data          =")
+	fmt.Println("========================================")
+	fmt.Println("=  Pilih data yang ingin dicari        =")
+	fmt.Println("=  1. Pelanggan                        =")
+	fmt.Println("=  2. Sparepart                        =")
+	fmt.Println("=  3. Transaksi                        =")
+	fmt.Println("=  4. Keluar                           =")
+	fmt.Println("----------------------------------------")
+	fmt.Print("   Masukkan pilihan anda : ")
 	fmt.Scan(&n)
+	fmt.Println("========================================")
 	if n == 1 {
 		cari_dataPelanggan(&arrPelanggan)
 	} else if n == 2 {
@@ -270,16 +273,19 @@ func tampil_data() {
 	var arrSparepart sukucadang
 	var n int
 
-	fmt.Println("== Aplikasi Service Motor ==")
-	fmt.Println("----------------------------")
-	fmt.Println("Pilih data yang ingin ditambah")
-	fmt.Println("1. Pelanggan")
-	fmt.Println("2. Sparepart")
-	fmt.Println("3. Transaksi")
-	fmt.Println("4. Keluar")
-	fmt.Print("Masukkan pilihan anda : ")
-	fmt.Println("----------------------------")
+	fmt.Println("========================================")
+	fmt.Println("=       APLIKASI SERVICE MOTOR         =")
+	fmt.Println("=       Page Menampilkan Data          =")
+	fmt.Println("========================================")
+	fmt.Println("=  Pilih data yang ingin ditambah      =")
+	fmt.Println("=  1. Pelanggan                        =")
+	fmt.Println("=  2. Sparepart                        =")
+	fmt.Println("=  3. Transaksi                        =")
+	fmt.Println("=  4. Keluar                           =")
+	fmt.Println("----------------------------------------")
+	fmt.Print("   Masukkan pilihan anda : ")
 	fmt.Scan(&n)
+	fmt.Println("========================================")
 	if n == 1 {
 		tampil_dataPelanggan(&arrPelanggan)
 	} else if n == 2 {
