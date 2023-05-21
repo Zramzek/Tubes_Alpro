@@ -72,6 +72,8 @@ func menu() {
 			cari_data()
 		} else if n == 5 {
 			tampil_data()
+		}else{
+			fmt.Print("Pilihan Anda tidak valid. Silakan pilih opsi yang tersedia!")
 		}
 	}
 	fmt.Println("")
