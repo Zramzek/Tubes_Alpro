@@ -9,10 +9,14 @@ type sparepart struct {
 	harga, diganti int
 }
 
+type time struct{
+	tanggal, bulan, tahun int
+}
+
 type transaksi struct {
 	// n menyatakan banyaknya transaksi //
 	id, tarif, n int
-	waktu        string
+	waktu        time
 	plgn         pelanggan
 	spr          sparepart
 }
