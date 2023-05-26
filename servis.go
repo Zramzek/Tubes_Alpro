@@ -1,15 +1,30 @@
+/*
+input data default dulu
+sparepart :
+busi 50000 0
+rantai 80000 0
+oli 60000 0
+
+pelanggan :
+agus
+asep
+muldi
+
+transaksi :
+kosong
+*/
 package main
 
 import "fmt"
 
-const NMAX = 10000
+const NMAX = 1000
 
 type sparepart struct {
 	nama           string
 	harga, diganti int
 }
 
-type time struct{
+type time struct {
 	tanggal, bulan, tahun int
 }
 
@@ -32,8 +47,13 @@ type histori [NMAX]transaksi
 type sukucadang [NMAX]sparepart
 
 func main() {
+	var arrPelanggan customer
+	var arrSparepart sukucadang
+	var s, p int
+
 	mulai()
-	menu()
+	nambah_dataPelanggan(&arrPelanggan, &p)
+	nambah_dataSparepart(&arrSparepart, &s)
 }
 
 func mulai() {
@@ -43,14 +63,15 @@ func mulai() {
 	fmt.Println("=       APLIKASI SERVICE MOTOR         =")
 	fmt.Println("=           Selamat Datang             =")
 	fmt.Println("========================================")
-
 	fmt.Print("Tekan tombol apapun untuk lanjut...")
 	fmt.Scanln(&blank)
 	fmt.Println("")
+	menuawal()
 }
 
-func menu() {
+func menuawal() {
 	var n int
+
 	for n != 6 {
 		fmt.Println("========================================")
 		fmt.Println("=       APLIKASI SERVICE MOTOR         =")
@@ -64,19 +85,19 @@ func menu() {
 		fmt.Println("=  6. Keluar                           =")
 		fmt.Println("= ------------------------------------ =")
 		fmt.Print("Masukkan pilihan anda : ")
-		fmt.Scan(&n)
+		fmt.Scanln(&n)
 		fmt.Println("========================================")
 		if n == 1 {
 			nambah_data()
 		} else if n == 2 {
-			ubah_data()
+			//ubah_data()
 		} else if n == 3 {
-			hapus_data()
+			//hapus_data()
 		} else if n == 4 {
-			cari_data()
+			//cari_data()
 		} else if n == 5 {
 			tampil_data()
-		}else{
+		} else {
 			fmt.Print("Pilihan Anda tidak valid. Silakan pilih opsi yang tersedia!")
 		}
 	}
@@ -93,6 +114,7 @@ func nambah_data() {
 	var arrTransaksi histori
 	var arrSparepart sukucadang
 	var n int
+	var s, p, t int
 
 	fmt.Println("========================================")
 	fmt.Println("=       APLIKASI SERVICE MOTOR         =")
@@ -108,13 +130,11 @@ func nambah_data() {
 	fmt.Scan(&n)
 	fmt.Println("========================================")
 	if n == 1 {
-		nambah_dataPelanggan(&arrPelanggan)
+		nambah_dataPelanggan(&arrPelanggan, &p)
 	} else if n == 2 {
-		nambah_dataSparepart(&arrTransaksi)
+		nambah_dataSparepart(&arrSparepart, &s)
 	} else if n == 3 {
-		nambah_dataTransaksi(&arrSparepart)
-	} else {
-		menu()
+		nambah_dataTransaksi(&arrTransaksi, &t)
 	}
 }
 
@@ -137,54 +157,42 @@ func nambah_data() {
 
 }*/
 
-func nambah_dataSparepart(T *sukucadang) {
-	var i int
+func nambah_dataPelanggan(T *customer, p *int) {
+	fmt.Println("== Aplikasi Service Motor ==")
+	fmt.Println("  Penambahan Data Pelanggan ")
+	fmt.Println("----------------------------")
+	fmt.Print("Nama : ")
+	fmt.Scanln(&T[*p])
+	fmt.Println("----------------------------")
+}
 
-	i = 0
+func nambah_dataSparepart(T *sukucadang, s *int) {
 	fmt.Println("== Aplikasi Service Motor ==")
 	fmt.Println("  Penambahan Data Sparepart ")
 	fmt.Println("----------------------------")
 	fmt.Print("Nama Sparepart : ")
-	fmt.Scanln(&T[i].nama)
+	fmt.Scanln(&T[*s].nama)
 	fmt.Print("Harga Sparepart : ")
-	fmt.Scanln(&T[i].harga)
+	fmt.Scanln(&T[*s].harga)
 	fmt.Println("----------------------------")
-	menu()
 }
 
-func nambah_dataPelanggan(T *customer) {
-	var i int
-
-	T[]
-	i = 0
-	fmt.Println("== Aplikasi Service Motor ==")
-	fmt.Println("  Penambahan Data Sparepart ")
-	fmt.Println("----------------------------")
-	fmt.Print("Nama : ")
-	fmt.Scanln(&T[i])
-	fmt.Println("----------------------------")
-	menu()
-}
-
-func nambah_dataTransaksi(T *histori) {
-	var i int
-
-	i = 0
+func nambah_dataTransaksi(T *histori, t *int) {
 	fmt.Println("== Aplikasi Service Motor ==")
 	fmt.Println("  Penambahan Data Sparepart ")
 	fmt.Println("----------------------------")
 	fmt.Print("Nama Pelanggan : ")
-	fmt.Scanln(&T[i].plgn)
+	fmt.Scanln(&T[*t].plgn)
 	fmt.Print("Waktu : ")
-	fmt.Scanln(&T[i].tarif)
+	fmt.Scanln(&T[*t].tarif)
 	fmt.Print("Tarif : ")
-	fmt.Scanln(&T[i].waktu)
+	fmt.Scanln(&T[*t].waktu)
 	fmt.Print("Sparepart yang diganti : ")
-	fmt.Scanln(&T[i].spr)
+	fmt.Scanln(&T[*t].spr)
 	fmt.Println("----------------------------")
-	menu()
 }
 
+/*
 func ubah_data() {
 	var arrPelanggan customer
 	var arrTransaksi histori
@@ -209,8 +217,6 @@ func ubah_data() {
 		ubah_dataSparepart(&arrTransaksi)
 	} else if n == 3 {
 		ubah_dataTransaksi(&arrSparepart)
-	} else {
-		menu()
 	}
 }
 
@@ -236,8 +242,6 @@ func hapus_data() {
 		hapus_dataSparepart(&arrTransaksi)
 	} else if n == 3 {
 		hapus_dataTransaksi(&arrSparepart)
-	} else {
-		menu()
 	}
 }
 
@@ -266,16 +270,15 @@ func cari_data() {
 		cari_dataSparepart(&arrTransaksi)
 	} else if n == 3 {
 		cari_dataTransaksi(&arrSparepart)
-	} else {
-		menu()
 	}
 }
+*/
 
 func tampil_data() {
 	var arrPelanggan customer
 	var arrTransaksi histori
 	var arrSparepart sukucadang
-	var n int
+	var n, p, s, t int
 
 	fmt.Println("========================================")
 	fmt.Println("=       APLIKASI SERVICE MOTOR         =")
@@ -291,13 +294,31 @@ func tampil_data() {
 	fmt.Scan(&n)
 	fmt.Println("========================================")
 	if n == 1 {
-		tampil_dataPelanggan(&arrPelanggan)
+		tampil_dataPelanggan(&arrPelanggan, &p)
 	} else if n == 2 {
-		tampil_dataSparepart(&arrTransaksi)
+		tampil_dataSparepart(&arrSparepart, &s)
 	} else if n == 3 {
-		tampil_dataTransaksi(&arrSparepart)
-	} else {
-		menu()
+		tampil_dataTransaksi(&arrTransaksi, &t)
 	}
-	menu()
+}
+
+func tampil_dataPelanggan(T *customer, p *int) {
+	for i := 0; i < *p; i++ {
+		fmt.Println(i, "\t")
+		fmt.Println(T[i])
+	}
+}
+
+func tampil_dataSparepart(T *sukucadang, s *int) {
+	for i := 0; i < *s; i++ {
+		fmt.Println(i, "\t")
+		fmt.Println(T[i])
+	}
+}
+
+func tampil_dataTransaksi(T *histori, t *int) {
+	for i := 0; i < *t; i++ {
+		fmt.Println(i, "\t")
+		fmt.Println(T[i])
+	}
 }
